@@ -2,7 +2,7 @@
 ## Bonus: Alfred-Workflow
 
 ## Introduction
-This is a Meme-Generator for Python, using PIL (with FreeType). It can put caption at the top and the bottom of images.
+This is a Meme-Generator for Python, using PIL (with FreeType). It can put captions at the top and the bottom of images.
 
 ## Requirements
 To use the Meme Generator, you have to have Python (duh!) and PIL (Python Image Library) with working FreeType.
@@ -11,7 +11,7 @@ To use the Alfred-Workflow, you have to have Alfred2 with the Powerpack installe
 
 ## Installation
 
-Download or fork or whatever this Repository, it has everything you need.
+Download or fork or whatever this Repository, it has everything you need. It even comes with a few meme templates to get you started.
 
 If you want to use the Alfred2-Workflow, I'd advice you to put the `memegenerator`-Folder into `~/dev/` (because this is where the Workflow will look for the files. If you feel uncomfortable using `~/dev/`, you can just edit the paths in the Workflow according to your needs.
 
@@ -52,7 +52,7 @@ This is similar to One Argument: The second Argument will be printed as the bott
 ``` bash
 $ python memegenerator.py memetype "Lorem Ipsum" "Dolor Sit"
 ```
-This used the second Argument as top caption, and the third as bottom caption.
+This uses the second Argument as top caption, and the third as bottom caption.
 
 The Memegenerator doesn't support more than three Arguments at the moment.
 
