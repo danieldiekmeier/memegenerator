@@ -14,7 +14,7 @@ def make_meme(topString, bottomString, filename):
 	imageSize = img.size
 
 	# find biggest font size that works
-	fontSize = imageSize[1]/5
+	fontSize = int(imageSize[1]/5)
 	font = ImageFont.truetype("/Library/Fonts/Impact.ttf", fontSize)
 	topTextSize = font.getsize(topString)
 	bottomTextSize = font.getsize(bottomString)
@@ -38,7 +38,7 @@ def make_meme(topString, bottomString, filename):
 
 	# draw outlines
 	# there may be a better way
-	outlineRange = fontSize/15
+	outlineRange = int(fontSize/15)
 	for x in range(-outlineRange, outlineRange+1):
 		for y in range(-outlineRange, outlineRange+1):
 			draw.text((topTextPosition[0]+x, topTextPosition[1]+y), topString, (0,0,0), font=font)
@@ -49,35 +49,62 @@ def make_meme(topString, bottomString, filename):
 
 	img.save("temp.png")
 
+def get_upper(somedata):
+	'''
+	Handle Python 2/3 differences in argv encoding
+	'''
+	result = ''
+	try:
+		result = somedata.decode("utf-8").upper()
+	except:
+		result = somedata.upper()
+	return result
+
+def get_lower(somedata):
+	'''
+	Handle Python 2/3 differences in argv encoding
+	'''
+	result = ''
+	try:
+		result = somedata.decode("utf-8").lower()
+	except:
+		result = somedata.lower()		
+
+	return result
+
+
 
 if __name__ == '__main__':
 
 	args_len = len(sys.argv)
+	topString = ''
+	meme = 'standard'
+
 	if args_len == 1:
 		# no args except the launch of the script
-		print 'args plz'
+		print('args plz')
+
 	elif args_len == 2:
 		# only one argument, use standard meme
-		topString = ''
-		bottomString = sys.argv[-1].decode("utf-8").upper()
-		meme = 'standard'
+		bottomString = get_upper(sys.argv[-1])
+
 	elif args_len == 3:
 		# args give meme and one line
-		topString = ''
-		bottomString = sys.argv[-1].decode("utf-8").upper()
-		meme = sys.argv[1].lower()
+		bottomString = get_upper(sys.argv[-1])
+		meme = get_lower(sys.argv[1])
+
 	elif args_len == 4:
 		# args give meme and two lines
-		topString = sys.argv[-2].decode("utf-8").upper()
-		bottomString = sys.argv[-1].decode("utf-8").upper()
-		meme = sys.argv[1].lower()
+		topString = get_upper(sys.argv[-2])
+		bottomString = get_upper(sys.argv[-1])
+		meme = get_lower(sys.argv[1])
 	else:
 		# so many args
 		# what do they mean
 		# too intense
 		print('to many argz')
 
-	print meme	
+	print(meme)	
 	filename = str(meme)+'.jpg'
 	make_meme(topString, bottomString, filename)	
 
