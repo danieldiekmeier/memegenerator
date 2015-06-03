@@ -65,7 +65,7 @@ Using Applescript to open and close Preview, just to copy it to the Clipboard is
 
 ## API Usage
 
-It is also possible to use memegenerator as an imported library. The memegenerator module has a single top-level method, make_meme(topString, bottomString, filename). The first two arguments specify the text which will appear on the image. The final argument is the full filename to the source image to be used. A file with the name 'temp.png' will be placed into the current directory. If no text is required for the top (or bottom), pass in the empty string.
+It is also possible to use memegenerator as an imported library. The memegenerator module has a single top-level method, `make_meme(topString, bottomString, filename)`. The first two arguments specify the text which will appear on the image. The final argument is the full filename to the source image to be used. A file with the name 'temp.png' will be placed into the current directory. If no text is required for the top (or bottom), pass in the empty string.
 
 ## Notes
 
