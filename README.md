@@ -21,7 +21,7 @@ Again, the Generator is not that complicated, if you do not want to use a Workfl
 
 To install the Alfred-Workflow, you just have to Open it.
 
-## Usage
+## Command-Line Usage
 
 The memegenerator.py uses images with the extension `.jpg` in the same folder it is in.
 
@@ -62,6 +62,10 @@ The Workflow takes the same arguments as the script and works the same. As a bon
 Now you can paste the image into Messages, Tweetbot, Photoshop or any other App that supports this.
 
 Using Applescript to open and close Preview, just to copy it to the Clipboard is a little messy, so if you have a better idea, send a pull request my way or open a ticket.
+
+## API Usage
+
+It is also possible to use memegenerator as an imported library. The memegenerator module has a single top-level method, make_meme(topString, bottomString, filename). The first two arguments specify the text which will appear on the image. The final argument is the full filename to the source image to be used. A file with the name 'temp.png' will be placed into the current directory. If no text is required for the top (or bottom), pass in the empty string.
 
 ## Notes
 
